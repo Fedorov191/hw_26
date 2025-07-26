@@ -1,0 +1,40 @@
+{
+  "friends": [
+    {
+      "name": "1",
+      "img": "src/images/friend1.jpg"
+    },
+    {
+      "name": "2",
+      "img": "src/images/friend2.jpg"
+    },
+    {
+      "name": "3",
+      "img": "src/images/friend3.jpg"
+    },
+    {
+      "name": "4",
+      "img": "src/images/friend4.jpg"
+    },
+    {
+      "name": "5",
+      "img": "src/images/friend5.jpg"
+    },
+    {
+      "name": "6",
+      "img": "src/images/friend6.jpg"
+    },
+    {
+      "name": "7",
+      "img": "src/images/friend7.jpg"
+    },
+    {
+      "name": "8",
+      "img": "src/images/friend8.jpg"
+    },
+    {
+      "name": "9",
+      "img": "src/images/friend9.jpg"
+    }
+  ]
+}
