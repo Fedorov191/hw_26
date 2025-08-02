@@ -1,19 +1,57 @@
-const FarGalaxy = () => {
-    return (
-        <p className="farGalaxy">
-            Title: <span>The Empire Strikes Back</span><br/>
-            Episode: <span>5</span><br/>
-            Release_date: <span>1980-05-17</span><br/>
-            <span>It is a dark time for the
-			Rebellion. Although the Death Star has been destroyed, Imperial troops have driven the Rebel forces from
-			their
-			hidden base and pursued them across the galaxy. Evading the dreaded Imperial Starfleet, a group of freedom
-			fighters led by Luke Skywalker has established a new secret base on the remote ice world of Hoth. The evil
-			lord
-			Darth Vader, obsessed with finding young Skywalker, has dispatched thousands of remote probes into the far
-			reaches of space....</span>
-        </p>
-    );
-};
+import {Component} from "react";
+
+type State = {
+    info: {
+        title: string,
+        release_date: string,
+        episode_id: number,
+        opening_crawl: string
+    }
+}
+
+class FarGalaxy extends Component<object, State> {
+    constructor(props: object) {
+        super(props);
+        this.state = {
+            info: {
+                title: '',
+                release_date: "",
+                episode_id: 0,
+                opening_crawl: 'Loading...'
+            }
+        }
+    }
+
+    async componentDidMount() {
+        const ep = Math.trunc(Math.random() * 4 + 1)
+        try {
+            const response = await fetch("https://sw-info-api.herokuapp.com/v1/films/" + ep);
+            if (!response.ok) throw 'Bad request';
+            const data = await response.json()
+            this.setState({
+                info: {
+                    title: data.title,
+                    release_date: data.release_date,
+                    episode_id: data.episode_id,
+                    opening_crawl: data.opening_crawl
+                }
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    render() {
+        const info = this.state.info
+        return (
+            <p className="farGalaxy">
+                Title: <span>{info.title}</span><br/>
+                Episode: <span>{info.episode_id}</span><br/>
+                Release_date: <span>{info.release_date}</span><br/>
+                <span>{info.opening_crawl}</span>
+            </p>
+        );
+    }
+}
 
 export default FarGalaxy;

@@ -1,0 +1,27 @@
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+
+
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+
+}
+
+.container-form {
+    border-radius: 5px;
+
+    padding: 20px;
+}

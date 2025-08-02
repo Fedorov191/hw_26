@@ -116,3 +116,11 @@ footer{
   object-fit: contain;
   cursor: pointer;
 }
+.container {
+  height: auto;
+  width: 1250px;
+  justify-content: center ;
+  padding: 1rem;
+}
+
+
